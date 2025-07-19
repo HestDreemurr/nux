@@ -1,0 +1,23 @@
+{
+  "name": "nux",
+  "version": "1.0.0",
+  "main": "src/index",
+  "scripts": {
+    "start": "tsnd --transpile-only --respawn --ignore-watch node_modules -r tsconfig-paths/register --env-file .env src/"
+  },
+  "keywords": [],
+  "author": "Hest",
+  "license": "MIT",
+  "description": "General-purpose discord bot with TypeScript and Discord.JS",
+  "devDependencies": {
+    "@eslint/js": "^9.31.0",
+    "eslint": "^9.31.0",
+    "globals": "^16.3.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.37.0"
+  },
+  "dependencies": {
+    "discord.js": "^14.21.0"
+  }
+}
