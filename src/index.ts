@@ -1,14 +1,18 @@
 import {
   Client,
-  GatewayIntentBits
+  GatewayIntentBits,
+  Collection
 } from "discord.js";
 import { load } from "./utils/load";
+import { deployCommands } from "./deploy";
 
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds
   ]
 });
+
+client.commands = new Collection();
 
 const events = load("events");
 events.forEach(({ event }) => {
@@ -19,4 +23,10 @@ events.forEach(({ event }) => {
   }
 });
 
+const commands = load("commands");
+commands.forEach(({ command }) => {
+  client.commands.set(command.data.name, command);
+});
+
+deployCommands();
 client.login(process.env.BOT_TOKEN);
